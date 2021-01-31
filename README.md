@@ -8,13 +8,11 @@ To use the program -
 
 4. Type the command:
 
-!git clone https://github.com/NilutpalNath/RecoNet
+  !git clone https://github.com/NilutpalNath/RecoNet
+  import os
+  os.chdir('RecoNet')
 
-import os
-
-os.chdir('RecoNet')
-
-Then run the cell by pressing Shift+Enter
+  Then run the cell by pressing Shift+Enter
 
 5. Type the following command in a new cell and run the cell:
 !python main.py
