@@ -6,10 +6,10 @@ To use the program -
 2. Goto Runtime tab -> Change runtime type and set Hardware accelerator as GPU and save it.
 3. Click connect
 
-4. Type the command:
-!git clone https://github.com/NilutpalNath/RecoNet
-import os
-os.chdir('RecoNet')
+4. Type the command:'\n'
+!git clone https://github.com/NilutpalNath/RecoNet'\n'
+import os'\n'
+os.chdir('RecoNet')'\n'
 
 Then run the cell by pressing Shift+Enter
 
