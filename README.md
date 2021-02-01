@@ -17,3 +17,8 @@ To use the program -
 
 5. Type the following command in a new cell and run the cell:
   <br>!python main.py
+  
+  <br>Please be patient as it takes time to run.
+  <br>When the cursor appears to take input click on it. An input field will appear. Type in it and press Enter.
+ 
+# Thank you for your help in testing the system.
