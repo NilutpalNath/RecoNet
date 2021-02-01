@@ -7,13 +7,13 @@ To use the program -
 3. Click connect
 
 4. Type the command:
-<p>
-  !git clone https://github.com/NilutpalNath/RecoNet
-  import os
-  os.chdir('RecoNet')
-</p>
+  <br>!git clone https://github.com/NilutpalNath/RecoNet
+  <br>import os
+  <br>os.chdir('RecoNet')
+  <br>!wget https://drive.google.com/file/d/1uYLvjymU8yuFf0PZAmF5ltgMo0BvFGOa/view?usp=sharing
+  <br>!wget https://drive.google.com/file/d/14x3TgzhFl-XCHjJHtX-mZrtTSkJgIIey/view?usp=sharing
 
   Then run the cell by pressing Shift+Enter
 
 5. Type the following command in a new cell and run the cell:
-<br>!python main.py
+  <br>!python main.py
