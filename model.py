@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.nn.init as init
-from loss import MSEloss_with_Mask
 
 
 def activation(input, type):
