@@ -6,7 +6,7 @@ Created on Mon Feb 15 18:02:14 2021
 """
 import pandas as pd
 
-results = pd.read_csv('Clusters.csv')
+results = pd.read_csv('clusters.csv')
 
 clusters = []
 
