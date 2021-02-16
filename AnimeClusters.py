@@ -18,10 +18,10 @@ for i in range(len(results)):
 
 def getCluster(anime_id, opposite=False):
     if opposite == False:
-        temp = results[results['anime_id'] == anime_id]['alpha'].reindex()
+        temp = results[results['anime_id'] == anime_id]['alpha'].reset_index(drop=True)
         clusterID = temp[0]
         return clusters[clusterID]
     else:
-        temp = results[results['anime_id'] == anime_id]['omega'].reindex()
-        clusterID = temp[0]
+        temp = results[results['anime_id'] == anime_id]['omega'].reset_index(drop=True)
+        clusterID = temp['omega'][0]
         return clusters[clusterID]

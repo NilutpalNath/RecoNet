@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+# Remove Warnings
+import warnings
+warnings.filterwarnings("ignore", category=DeprecationWarning)
+warnings.filterwarnings("ignore", category=UserWarning)
+warnings.filterwarnings("ignore", category=FutureWarning)
 
 # Import a few basic modules
 import pandas as pd
