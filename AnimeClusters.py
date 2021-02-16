@@ -23,5 +23,5 @@ def getCluster(anime_id, opposite=False):
         return clusters[clusterID]
     else:
         temp = results[results['anime_id'] == anime_id]['omega'].reset_index(drop=True)
-        clusterID = temp['omega'][0]
+        clusterID = temp[0]
         return clusters[clusterID]
