@@ -40,6 +40,7 @@ def similarAnime(uratings, all_anime):
                 SimilarAnime += AnimeClusters.getCluster(temp[i][0], opposite=False)
             else:
                 SimilarAnime += AnimeClusters.getCluster(temp[i][0], opposite=True)
+            i+=1
 
         return SimilarAnime
 
