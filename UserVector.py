@@ -1,9 +1,8 @@
-import pandas as pd
 import numpy as np
-import torch
-import torchvision
-from torch.utils.data import Dataset, DataLoader
-from torchvision import transforms, utils
+import pandas as pd
+
+from torch.utils.data import Dataset
+from torchvision import transforms
 
 class UserVector(Dataset):
     def __init__(self, age, gender, uratings):
@@ -27,20 +26,19 @@ class UserVector(Dataset):
 
         self.data = self.data.iloc[:,:]
         self.transform =  transforms.Compose([transforms.ToTensor()])
-        
+
         self.data = self.transform(np.array(self.data))
-        
+
     def __len__(self):
         return len(self.data[0])
-    
+
     def __getitem__(self, ind):
         user_vector = self.data.data[0][ind]
-        
+
         return user_vector
 
     def get_anime_id(self, ind):
         return int(self.columns[ind])
-    
+
     def anime_to_index(self):
-      
-      return self.aniId_to_ind
+        return self.aniId_to_ind
