@@ -41,7 +41,6 @@ def similarAnime(uratings, all_anime):
             else:
                 SimilarAnime += AnimeClusters.getCluster(temp[i][0], opposite=True)
             i+=1
-
         return SimilarAnime
 
 # Get Anime You May Like
@@ -61,8 +60,8 @@ def animeYouMayLike(age, gender, uratings, all_anime):
     preds = preds.reshape(-1)
 
     # Get top predicted anime
-    topN = list(preds.argsort()[-1000:][::-1])
-    animes = list(map(user_data.get_anime_id, topN))
+    animes = list(preds.argsort()[-1000:][::-1])
+    aniID_to_index = user_data.anime_to_index()
 
     # Get Similar Anime
     SimilarAnime = similarAnime(uratings, all_anime)
@@ -74,15 +73,18 @@ def animeYouMayLike(age, gender, uratings, all_anime):
     FinalList2 = []
 
     for aniID in animes:
-        r = [aniID, all_anime['title'][aniID], all_anime['title_english'][aniID], all_anime['genre'][aniID]]
+        try:
+            index = aniID_to_index.at[str(aniID)]
+            r = [aniID, all_anime['title'][index], all_anime['title_english'][index], all_anime['genre'][index]]
 
-        if aniID in SimilarAnime and len(FinalList1) <=5:
-            FinalList1.append(r)
-        elif len(FinalList2) <=5:
-            FinalList2.append(r)
-        else:
-            break
-
+            if aniID in SimilarAnime and len(FinalList1) <=5:
+                FinalList1.append(r)
+            elif len(FinalList2) <=5:
+                FinalList2.append(r)
+            else:
+                break
+        except:
+            pass
     return FinalList1, FinalList2
 
 # Main Game
