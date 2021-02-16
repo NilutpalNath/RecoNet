@@ -37,9 +37,9 @@ def similarAnime(uratings, all_anime):
         i = 0
         while i < len(temp) and i < 3:
             if temp[i][1] >= 6:
-                SimilarAnime += AnimeClusters.getCluster(opposite=False)
+                SimilarAnime += AnimeClusters.getCluster(temp[i][0], opposite=False)
             else:
-                SimilarAnime += AnimeClusters.getCluster(opposite=True)
+                SimilarAnime += AnimeClusters.getCluster(temp[i][0], opposite=True)
 
         return SimilarAnime
 
