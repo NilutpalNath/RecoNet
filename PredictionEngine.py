@@ -5,7 +5,7 @@ Created on Mon Feb 15 17:11:42 2021
 @author: Debangan Daemon
 """
 import torch
-from model import AutoEncoder
+from Model import AutoEncoder
 
 
 # Calculate AutoEncoder outputs
@@ -18,7 +18,7 @@ class PredictionEngine:
         self.model = self.model.cuda()
     except:
         pass
-  
+
   def getPredictedRatings(self, user_dat, user_dl):
     for data in user_dl:
       inputs = data

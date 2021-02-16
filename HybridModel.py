@@ -44,7 +44,7 @@ def similarAnime(uratings, all_anime):
         return SimilarAnime
 
 # Get Anime You May Like
-def animeYouMayLike(age, gender, uratings, all_anime):
+def animeYouMayLike(age, gender, uratings, all_anime, aniId_to_index):
 
     # Load the AutoEncoder
     model = PredictionEngine()
@@ -61,7 +61,6 @@ def animeYouMayLike(age, gender, uratings, all_anime):
 
     # Get top predicted anime
     animes = list(preds.argsort()[-1000:][::-1])
-    aniID_to_index = user_data.anime_to_index()
 
     # Get Similar Anime
     SimilarAnime = similarAnime(uratings, all_anime)
@@ -73,23 +72,21 @@ def animeYouMayLike(age, gender, uratings, all_anime):
     FinalList2 = []
 
     for aniID in animes:
-        try:
-            index = aniID_to_index.at[str(aniID)]
-            r = [aniID, all_anime['title'][index], all_anime['title_english'][index], all_anime['genre'][index]]
+        index = int(aniId_to_index.at[aniID])
+        r = [aniID, all_anime['title'][index], all_anime['title_english'][index], all_anime['genre'][index]]
 
-            if aniID in SimilarAnime and len(FinalList1) <=5:
-                FinalList1.append(r)
-            elif len(FinalList2) <=5:
-                FinalList2.append(r)
-            else:
-                break
-        except:
-            pass
+        if aniID in SimilarAnime and len(FinalList1) <=5 and aniID not in uratings:
+            FinalList1.append(r)
+        elif aniID not in SimilarAnime and len(FinalList2) <=5 and aniID not in uratings:
+            FinalList2.append(r)
+        elif len(FinalList1) == 5 and len(FinalList2) == 5:
+            break
+
     return FinalList1, FinalList2
 
 # Main Game
-def showRecommendations(age, gender, uratings, all_anime):
-    List1, List2 = animeYouMayLike(age, gender, uratings, all_anime)
+def showRecommendations(age, gender, uratings, all_anime, aniId_to_index):
+    List1, List2 = animeYouMayLike(age, gender, uratings, all_anime, aniId_to_index)
 
     # Tabulate the Results
     print("similar Anime")

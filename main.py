@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 # Remove Warnings
 import warnings
 warnings.filterwarnings("ignore", category=DeprecationWarning)
@@ -13,17 +14,18 @@ from collections import OrderedDict
 import HybridModel
 
 # Search anime in database
-def find_anime(input_anime, name_to_id):
-    for n in name_to_id.index:
+def find_anime(input_anime, name_to_index):
+    for n in name_to_index.index:
         if input_anime in n.lower():
-            print(name_to_id[n], '\t', n)
+            print(name_to_index[n], '\t', n)
 
 # Main Function
 def main():
 
     # Load all the datasets
-    all_anime = pd.read_csv("anime_cleaned.csv", index_col=[0])
-    name_to_id = pd.Series(all_anime.index, index=all_anime['title'])
+    all_anime = pd.read_csv("anime_cleaned.csv")
+    name_to_index = pd.Series(all_anime.index, index=all_anime['title'])
+    aniId_to_index = pd.Series(all_anime.index, index=all_anime['anime_id'])
 
     # Get basic information from the user
     age = int(input("Enter Age: "))
@@ -45,7 +47,7 @@ def main():
             p = 'n'
             while p == 'n' or p == 'N':
                 input_anime = input("Enter Anime title: ")
-                find_anime(input_anime.lower(), name_to_id)
+                find_anime(input_anime.lower(), name_to_index)
                 p = input("Anime found? [y/n]: ")
 
             aniId = int(input("Enter anime id: "))
@@ -55,7 +57,7 @@ def main():
             k2 = input("Search and rate more? [y/n]: ")
 
         # Main Game
-        HybridModel.show_recommendations(age, gender, input_ratings, all_anime)
+        HybridModel.show_recommendations(age, gender, input_ratings, all_anime, aniId_to_index)
 
         # If user want to rate anime from above list
         k2 = input("Rate anime from above list? [y/n]:")
