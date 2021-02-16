@@ -26,7 +26,7 @@ class UserVector(Dataset):
 
         self.columns = list(self.data.columns)
 
-        self.aniId_to_ind = pd.Series(data=range(len(self.columns)-2), index=self.columns[2:])
+        self.aniId_to_ind = pd.Series(data=range(len(self.columns)), index=self.columns)
 
         for aniId in uratings.keys():
             self.data.loc[0, str(aniId)] = uratings[aniId]
