@@ -16,7 +16,8 @@ To run the program -
   <br>!gdown --id 1uYLvjymU8yuFf0PZAmF5ltgMo0BvFGOa
   <br>!gdown --id 14x3TgzhFl-XCHjJHtX-mZrtTSkJgIIey
   <br>!python main.py
-  Then run the cell by pressing Ctrl+Enter
+  
+  <br>Then run the cell by pressing Ctrl+Enter
   
 6. Please be patient as it takes some time to run.
    <br>When the cursor appears to take input, click on it. An input field will appear. Type in it and press Enter.
