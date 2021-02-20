@@ -16,7 +16,6 @@ To run the program -
   <br>!gdown --id 1uYLvjymU8yuFf0PZAmF5ltgMo0BvFGOa
   <br>!gdown --id 14x3TgzhFl-XCHjJHtX-mZrtTSkJgIIey
   <br>!python main.py
-  
   <br>Then run the cell by pressing Ctrl+Enter
   
 6. Please be patient as it takes some time to run.
