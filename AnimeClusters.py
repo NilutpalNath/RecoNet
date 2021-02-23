@@ -10,7 +10,7 @@ results = pd.read_csv('clusters.csv')
 
 clusters = []
 
-for i in range(341):
+for i in range(222):
     clusters.append([])
 
 for i in range(len(results)):
@@ -22,6 +22,6 @@ def getCluster(anime_id, opposite=False):
         clusterID = temp[0]
         return clusters[clusterID]
     else:
-        temp = results[results['anime_id'] == anime_id]['omega'].reset_index(drop=True)
+        temp = results[results['anime_id'] == anime_id]['zeta'].reset_index(drop=True)
         clusterID = temp[0]
         return clusters[clusterID]

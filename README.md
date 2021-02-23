@@ -1,6 +1,6 @@
 # RecoNet
 
-To run the program - 
+To run the program -
 
 1. Open Google Colab. Link - https://colab.research.google.com/
 
@@ -17,11 +17,11 @@ To run the program -
   <br>!gdown --id 14x3TgzhFl-XCHjJHtX-mZrtTSkJgIIey
   <br>!python main.py
   <br>Then run the cell by pressing Ctrl+Enter
-  
+
 6. Please be patient as it takes some time to run.
    <br>When the cursor appears to take input, click on it. An input field will appear. Type in it and press Enter.
-  
-Note: The accepted ratings are from 1 to 10. Their meanings are as follows - 
+
+Note: The accepted ratings are from 1 to 10. Their meanings are as follows -
       <br>10 -> Masterpiece
       <br>9  -> Outstanding
       <br>8  -> Very Good
@@ -32,5 +32,5 @@ Note: The accepted ratings are from 1 to 10. Their meanings are as follows -
       <br>3  -> Bad
       <br>2  -> Barely acceptable
       <br>1  -> Trash
- 
+
 ### Thank you for your help in testing the system.
