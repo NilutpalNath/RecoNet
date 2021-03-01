@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 16 13:09:29 2021
-
-@author: Debangan Daemon
-"""
 #Import a few basic modules
 import pandas as pd
 from tabulate import tabulate
@@ -61,11 +55,12 @@ def animeYouMayLike(age, gender, uratings, all_anime, aniId_to_index):
 
     # Get top predicted anime
     animes = list(preds.argsort()[-1000:][::-1])
+    animes = list(map(user_data.get_anime_id, animes))
 
     # Get Similar Anime
     SimilarAnime = similarAnime(uratings, all_anime)
     if len(SimilarAnime) == 0:
-        return
+        return [], []
 
     # Generate 'Similar Anime' and 'Anime You May Like'
     FinalList1 = []
@@ -75,11 +70,11 @@ def animeYouMayLike(age, gender, uratings, all_anime, aniId_to_index):
         index = int(aniId_to_index.at[aniID])
         r = [aniID, all_anime['title'][index], all_anime['title_english'][index], all_anime['genre'][index]]
 
-        if aniID in SimilarAnime and len(FinalList1) <=5 and aniID not in uratings:
+        if aniID in SimilarAnime and len(FinalList1) <10 and aniID not in uratings:
             FinalList1.append(r)
-        elif aniID not in SimilarAnime and len(FinalList2) <=5 and aniID not in uratings:
+        elif aniID not in SimilarAnime and len(FinalList2) <10 and aniID not in uratings:
             FinalList2.append(r)
-        elif len(FinalList1) == 5 and len(FinalList2) == 5:
+        elif len(FinalList1) == 10 and len(FinalList2) == 10:
             break
 
     return FinalList1, FinalList2
