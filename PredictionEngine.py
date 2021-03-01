@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Feb 15 17:11:42 2021
-
-@author: Debangan Daemon
-"""
 import torch
 from Model import AutoEncoder
 
@@ -11,7 +5,7 @@ from Model import AutoEncoder
 # Calculate AutoEncoder outputs
 class PredictionEngine:
   def __init__(self):
-    self.layer_sizes = [6670, 8192, 2048, 512, 256]
+    self.layer_sizes = [6673, 8192, 2048, 512, 256]
     self.model = AutoEncoder(layer_sizes=self.layer_sizes, nl_type='selu', is_constrained=True, dp_drop_prob=0.0, last_layer_activations=False)
     self.model.load_state_dict(torch.load('autoEncoder.pth'))
     try:
