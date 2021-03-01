@@ -10,19 +10,19 @@ class UserVector(Dataset):
             self.age=2
         elif age<16:
             self.age=3
-        elif age<27:
+        elif age<20:
             self.age=4
         else:
             self.age=5
 
         if gender.lower() == 'male':
-            self.gender = 1
+            self.gender = 0
         else:
-            self.gender = 2
+            self.gender = 1
 
         self.data = pd.read_csv("inputFormater.csv")
         self.data.loc[0, 'Gender'] = self.gender
-        self.data.loc[0, 'Age_category'] = self.age
+        self.data.loc[0, 'Category'+str(self.age)] = 1
 
         self.columns = list(self.data.columns)
 
