@@ -12,6 +12,7 @@ from collections import OrderedDict
 
 # Custom Scripts
 import HybridModel
+from PredictionEngine import PredictionEngine
 
 # Search anime in database
 def find_anime(input_anime, name_to_index):
@@ -36,6 +37,9 @@ def main():
     print("\nIt is recommended to rate atleast 5 animes in the beginning.")
     print("Note:- Currently search mechanism searches for anime using only Japanese Title")
 
+    # Load the AutoEncoder
+    model = PredictionEngine()
+    
     # Start the recommendation process
     k1 = input("Start the process? [y/n]: ")
 
@@ -57,7 +61,7 @@ def main():
             k2 = input("Search and rate more? [y/n]: ")
 
         # Main Game
-        HybridModel.show_recommendations(age, gender, input_ratings, all_anime, aniId_to_index)
+        HybridModel.showRecommendations(age, gender, input_ratings, model, all_anime, aniId_to_index)
 
         # If user want to rate anime from above list
         k2 = input("Rate anime from above list? [y/n]:")
