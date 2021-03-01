@@ -13,7 +13,7 @@ To run the program -
   <br>!git clone https://github.com/NilutpalNath/RecoNet
   <br>import os
   <br>os.chdir('RecoNet')
-  <br>!gdown --id 1uYLvjymU8yuFf0PZAmF5ltgMo0BvFGOa
+  <br>!gdown --id 1LV7VHOTqU5WgBYxfRcUeY31dbhcBqyzb
   <br>!gdown --id 14x3TgzhFl-XCHjJHtX-mZrtTSkJgIIey
   <br>!python main.py
   <br>Then run the cell by pressing Ctrl+Enter
