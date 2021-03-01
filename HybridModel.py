@@ -9,7 +9,6 @@ from torch.utils.data import DataLoader
 import TopAnime
 import AnimeClusters
 from UserVector import UserVector
-from PredictionEngine import PredictionEngine
 
 # Get similar anime
 def similarAnime(uratings, all_anime):
@@ -38,10 +37,7 @@ def similarAnime(uratings, all_anime):
         return SimilarAnime
 
 # Get Anime You May Like
-def animeYouMayLike(age, gender, uratings, all_anime, aniId_to_index):
-
-    # Load the AutoEncoder
-    model = PredictionEngine()
+def animeYouMayLike(age, gender, uratings, model, all_anime, aniId_to_index):
 
     # User Data Column
     user_data = UserVector(age, gender, uratings)
@@ -80,8 +76,8 @@ def animeYouMayLike(age, gender, uratings, all_anime, aniId_to_index):
     return FinalList1, FinalList2
 
 # Main Game
-def showRecommendations(age, gender, uratings, all_anime, aniId_to_index):
-    List1, List2 = animeYouMayLike(age, gender, uratings, all_anime, aniId_to_index)
+def showRecommendations(age, gender, uratings, model, all_anime, aniId_to_index):
+    List1, List2 = animeYouMayLike(age, gender, uratings, model, all_anime, aniId_to_index)
 
     # Tabulate the Results
     print("similar Anime")
