@@ -38,7 +38,11 @@ def similarAnime(uratings, all_anime):
 
 # Get Anime You May Like
 def animeYouMayLike(age, gender, uratings, model, all_anime, aniId_to_index):
-
+    # Get Similar Anime
+    SimilarAnime = similarAnime(uratings, all_anime)
+    if len(SimilarAnime) == 0:
+        return [], []
+    
     # User Data Column
     user_data = UserVector(age, gender, uratings)
 
@@ -52,11 +56,6 @@ def animeYouMayLike(age, gender, uratings, model, all_anime, aniId_to_index):
     # Get top predicted anime
     animes = list(preds.argsort()[-1000:][::-1])
     animes = list(map(user_data.get_anime_id, animes))
-
-    # Get Similar Anime
-    SimilarAnime = similarAnime(uratings, all_anime)
-    if len(SimilarAnime) == 0:
-        return [], []
 
     # Generate 'Similar Anime' and 'Anime You May Like'
     FinalList1 = []
@@ -77,8 +76,11 @@ def animeYouMayLike(age, gender, uratings, model, all_anime, aniId_to_index):
 
 # Main Game
 def showRecommendations(age, gender, uratings, model, all_anime, aniId_to_index):
+    # Get both the lists
     List1, List2 = animeYouMayLike(age, gender, uratings, model, all_anime, aniId_to_index)
-
+    if len(List1) == 0 and len(List2) == 0:
+        return
+    
     # Tabulate the Results
     print("similar Anime")
     table = tabulate(List1, headers=['Anime ID', 'JP Title', 'EN Title', 'Genre'], tablefmt='orgtbl')
