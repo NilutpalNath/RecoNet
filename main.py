@@ -15,17 +15,18 @@ import HybridModel
 from PredictionEngine import PredictionEngine
 
 # Search anime in database
-def find_anime(input_anime, name_to_index):
-    for n in name_to_index.index:
+def find_anime(input_anime, name_to_id):
+    print('Anime Id', '\t', 'Title')
+    for n in name_to_id.index:
         if input_anime in n.lower():
-            print(name_to_index[n], '\t', n)
+            print(name_to_id[n], '\t', n)
 
 # Main Function
 def main():
 
     # Load all the datasets
     all_anime = pd.read_csv("anime_cleaned.csv")
-    name_to_index = pd.Series(all_anime.index, index=all_anime['title'])
+    name_to_id = pd.Series(all_anime['anime_id'], index=all_anime['title'])
     aniId_to_index = pd.Series(all_anime.index, index=all_anime['anime_id'])
 
     # Get basic information from the user
@@ -51,7 +52,7 @@ def main():
             p = 'n'
             while p == 'n' or p == 'N':
                 input_anime = input("Enter Anime title: ")
-                find_anime(input_anime.lower(), name_to_index)
+                find_anime(input_anime.lower(), name_to_id)
                 p = input("Anime found? [y/n]: ")
 
             aniId = int(input("Enter anime id: "))
