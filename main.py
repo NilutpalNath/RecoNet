@@ -26,7 +26,7 @@ def main():
 
     # Load all the datasets
     all_anime = pd.read_csv("anime_cleaned.csv")
-    name_to_id = pd.Series(all_anime['anime_id'], index=all_anime['title'])
+    name_to_id = pd.Series(list(all_anime['anime_id']), index=all_anime['title'])
     aniId_to_index = pd.Series(all_anime.index, index=all_anime['anime_id'])
         
     # Load the AutoEncoder
