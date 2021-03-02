@@ -39,10 +39,10 @@ class UserVector(Dataset):
         self.data = self.transform(np.array(self.data))
 
     def __len__(self):
-        return len(self.data[0][0])
+        return len(self.data[0])
 
     def __getitem__(self, ind):
-        user_vector = self.data.data[0][0][ind]
+        user_vector = self.data.data[0][ind]
         return user_vector
 
     def get_anime_id(self, ind):
