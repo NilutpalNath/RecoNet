@@ -28,6 +28,11 @@ def main():
     all_anime = pd.read_csv("anime_cleaned.csv")
     name_to_id = pd.Series(all_anime['anime_id'], index=all_anime['title'])
     aniId_to_index = pd.Series(all_anime.index, index=all_anime['anime_id'])
+        
+    # Load the AutoEncoder
+    model = PredictionEngine()
+    
+    print("Starting...")
 
     # Get basic information from the user
     age = int(input("Enter Age: "))
@@ -37,9 +42,6 @@ def main():
     # Let the user rate some animes
     print("\nIt is recommended to rate atleast 5 animes in the beginning.")
     print("Note:- Currently search mechanism searches for anime using only Japanese Title")
-
-    # Load the AutoEncoder
-    model = PredictionEngine()
     
     # Start the recommendation process
     k1 = input("Start the process? [y/n]: ")
