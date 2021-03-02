@@ -29,10 +29,10 @@ def main():
     name_to_id = pd.Series(list(all_anime['anime_id']), index=all_anime['title'])
     aniId_to_index = pd.Series(all_anime.index, index=all_anime['anime_id'])
         
+    print("Starting...\n")
+    
     # Load the AutoEncoder
     model = PredictionEngine()
-    
-    print("Starting...")
 
     # Get basic information from the user
     age = int(input("Enter Age: "))
@@ -41,15 +41,15 @@ def main():
 
     # Let the user rate some animes
     print("\nIt is recommended to rate atleast 5 animes in the beginning.")
-    print("Note:- Currently search mechanism searches for anime using only Japanese Title")
+    print("Note:- Currently search mechanism searches for anime using the Japanese Title only.")
     
     # Start the recommendation process
-    k1 = input("Start the process? [y/n]: ")
+    k1 = input("\nStart the process? [y/n]: ")
 
     while k1 == 'y' or k1 == 'Y':
 
         # If user want to search and rate
-        k2 = input("Search and rate? [y/n]: ")
+        k2 = input("\nSearch and rate? [y/n]: ")
         while k2 == 'y' or k2 == 'Y':
             p = 'n'
             while p == 'n' or p == 'N':
@@ -67,7 +67,7 @@ def main():
         HybridModel.showRecommendations(age, gender, input_ratings, model, all_anime, aniId_to_index)
 
         # If user want to rate anime from above list
-        k2 = input("Rate anime from above list? [y/n]:")
+        k2 = input("\nRate anime from above list? [y/n]:")
         while k2 == 'y' or k2 == 'Y':
             aniId = int(input("Enter anime id: "))
             rate = int(input("Your rating (1 - 10): "))
@@ -75,7 +75,7 @@ def main():
 
             k2 = input("Rate again from above list? [y/n]: ")
 
-        k1 = input("Keep going? [y/n]: ")
+        k1 = input("\nKeep going? [y/n]: ")
 
 # Run script
 main()
