@@ -15,11 +15,12 @@ def similarAnime(uratings, all_anime):
 
     if len(uratings) == 0:
         ani_genre = pd.read_csv("anime_genres.csv", index_col=[0])
+        anime_data = all_anime.set_index('anime_id')
 
-        TopAnime.top_animes('Shounen', ani_genre, all_anime)
-        TopAnime.top_animes('Supernatural', ani_genre, all_anime)
-        TopAnime.top_animes('Romance', ani_genre, all_anime)
-        TopAnime.top_animes('Slice of Life', ani_genre, all_anime)
+        TopAnime.top_animes('Shounen', ani_genre, anime_data)
+        TopAnime.top_animes('Supernatural', ani_genre, anime_data)
+        TopAnime.top_animes('Romance', ani_genre, anime_data)
+        TopAnime.top_animes('Slice of Life', ani_genre, anime_data)
 
         return []
 
